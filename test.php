@@ -10,6 +10,11 @@
         exit;
     }
 
+    if (isset($list[$_GET['test']]) && (!isAuthorized() && !isQuest())) {
+        http_response_code(403);  
+        exit;
+    }
+
     foreach ($list as $key => $file) {
         if ($key == $_GET['test']) {
             $test = file_get_contents($list[$key]);
