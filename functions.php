@@ -35,6 +35,10 @@
     {
         return !empty($_SESSION['user']);
     }
+    function isQuest()
+    {
+        return !empty($_COOKIE['name']);
+    }
     function entryName()
     {
         if (isAuthorized()) {

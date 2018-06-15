@@ -1,7 +1,9 @@
 <?php
     require_once 'functions.php';
     if (!isAuthorized()) {
-        http_response_code(403);  
+        //redirect('index');
+        http_response_code(403);
+        exit;  
     }
     foreach ($_FILES as $key => $value) {
         if (isset($_POST) && isset($_FILES)) {
@@ -12,7 +14,7 @@
 
             if ($pathInfo['extension'] === 'json') {
                 move_uploaded_file($tmp, $uploaddir . $file);
-                redirect('list');
+                header('refresh:3; url=list.php');
             } else {
                 echo 'Файл не передан, нужен файл json.' . '<br>';
             }
@@ -27,10 +29,10 @@
   <title>Загрузить тесты</title>
 </head>
 <body>
+  <h2>Загрузить тесты</h2>
   <form method="post" enctype="multipart/form-data">
-    <legend>Загрузить тесты</legend>
-      <input type="file" name="usefile1">
-      <input type="file" name="usefile">
+    <input type="file" name="usefile1">
+    <input type="file" name="usefile">
     <input type="submit" value="Отправить"><br>
   </form>
   <ul>

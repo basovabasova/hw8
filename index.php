@@ -6,6 +6,7 @@
     if (!empty($_GET['name'])) {
         setcookie('name', $_GET['name']);
         redirect('list');
+        //header('refresh:1; url=list.php');
     }
 ?>
 

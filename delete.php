@@ -1,7 +1,9 @@
 <?php
     require_once 'functions.php';
     if (!isAuthorized()) {
-        http_response_code(403); 
+        //redirect('index'); 
+        http_response_code(403);
+        exit; 
     }
 
     $list = glob('tests/*.json');
