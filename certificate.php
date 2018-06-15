@@ -1,5 +1,10 @@
 <?php
     require_once 'functions.php';
+    if (!$_POST['generate']) {
+        http_response_code(404);  
+        exit;
+    }
+
     $code = "Тест пройден!\n" . entryName() . ', ваша оценка 47!';
 
     $image = imagecreatetruecolor(650, 256);
