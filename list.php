@@ -37,9 +37,8 @@
     <?php
         if (isAuthorized()) { ?>
           <li><a href="admin.php">Загрузить тесты</a></li>
-
-          <li><a href="logout.php">Выход</a></li>
     <?php } ?>
+    <li><a href="logout.php">Выход</a></li>
   </ul>
 </body>
 </html>
